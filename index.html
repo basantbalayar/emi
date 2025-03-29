@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basant Balayar</title>
+    <meta name="description" content="Nepali EMI Calculator for calculating monthly installments (EMI) for loan amounts, interest rates, and loan tenures. Calculate your loan EMI easily.">
+    <meta name="keywords" content="Nepali EMI calculator, EMI calculation, loan EMI, monthly installment calculator, loan interest, Nepali loan calculator">
+    <meta name="author" content="Basant Balayar">
+    <meta property="og:title" content="Nepali EMI Calculator">
+    <meta property="og:description" content="Calculate your monthly EMI for loans with this Nepali EMI calculator. Easily determine your loan EMI based on the amount, interest rate, and tenure.">
+    <meta property="og:image" content="URL_TO_IMAGE">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="URL_OF_THIS_PAGE">
+    <title>Nepali EMI Calculator - Calculate Monthly Loan Installments</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -124,16 +132,16 @@
 <body>
     <div class="container">
         <h2>EMI Calculator</h2>
-        <label>Loan Amount (Rs):</label>
-        <input type="number" id="loanAmount" placeholder="Enter amount" required>
+        <label>ऋण रकम (Rs):</label>
+        <input type="number" id="loanAmount" placeholder="रकम लेख्नुहोस्" required>
         
-        <label>Annual Interest Rate (%):</label>
-        <input type="number" id="interestRate" placeholder="Enter rate" required>
+        <label>वार्षिक ब्याज दर (%):</label>
+        <input type="number" id="interestRate" placeholder="ब्याज दर लेख्नुहोस्" required>
         
-        <label>Loan Tenure (Months):</label>
-        <input type="number" id="loanTenure" placeholder="Enter tenure" required>
+        <label>ऋण अवधि (महिना):</label>
+        <input type="number" id="loanTenure" placeholder="अवधि लेख्नुहोस्" required>
         
-        <button onclick="calculateEMI()">Calculate EMI</button>
+        <button onclick="calculateEMI()">EMI गणना गर्नुहोस्</button>
         
         <p class="result" id="emiResult"></p>
         <div id="schedule"></div>
@@ -147,16 +155,16 @@
             
             if (principal && rate && tenure) {
                 let emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
-                document.getElementById('emiResult').innerText = `Monthly EMI: Rs${emi.toFixed(2)}`;
+                document.getElementById('emiResult').innerText = `मासिक EMI: Rs${emi.toFixed(2)}`;
                 generateSchedule(principal, rate, tenure, emi);
             } else {
-                document.getElementById('emiResult').innerText = 'Please enter all values.';
+                document.getElementById('emiResult').innerText = 'कृपया सबै मान्यताहरू भर्नुहोस्।';
             }
         }
 
         function generateSchedule(principal, rate, tenure, emi) {
             let balance = principal;
-            let scheduleHTML = `<table><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Remaining Balance</th></tr>`;
+            let scheduleHTML = `<table><tr><th>महिना</th><th>प्रिन्सिपल</th><th>ब्याज</th><th>बाकी रकम</th></tr>`;
             
             for (let i = 1; i <= tenure; i++) {
                 let interest = balance * rate;
